@@ -54,3 +54,6 @@ Then, create a compile_flags.txt folder in the source folder and add the followi
 ```
 --target=x86_64-w64-mingw32
 ```
+
+Old neovim install location on Meshlicious:
+`C:\Users\usern\AppData\Local\Programs\Neovim\bin`
