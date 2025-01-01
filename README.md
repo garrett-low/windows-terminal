@@ -57,3 +57,9 @@ Then, create a compile_flags.txt folder in the source folder and add the followi
 
 Old neovim install location on Meshlicious:
 `C:\Users\usern\AppData\Local\Programs\Neovim\bin`
+
+# Wezterm
+Add to your environment variables:
+| Variabe Name | Variable Value |
+|---|---|
+| `WEZTERM_CONFIG_FILE` | `<path to .wezterm.lua>`<br>`C:\git\windows-terminal\wezterm\.wezterm.lua` |
