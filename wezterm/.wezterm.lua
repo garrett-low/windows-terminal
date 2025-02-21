@@ -1,5 +1,5 @@
 -- Pull in the wezterm API
-local wezterm = require 'wezterm'
+local wezterm = require("wezterm")
 
 -- This will hold the configuration.
 local config = wezterm.config_builder()
@@ -10,40 +10,49 @@ local config = wezterm.config_builder()
 config.window_decorations = "RESIZE|INTEGRATED_BUTTONS"
 
 -- For example, changing the color scheme:
-config.color_scheme = 'Monokai Remastered'
+config.color_scheme = "Monokai Remastered"
 
 -- Default start
-config.default_prog = { 'powershell.exe' }
+config.default_prog = { "powershell.exe" }
 config.default_cwd = "C:/git"
+
+-- Font
+config.font = wezterm.font_with_fallback({
+	"CommitMono",
+	"JetBrains Mono",
+})
+
+-- Disable ligatures
+config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
 
 -- Adds PowerShell and VS cmd.exe to the Launcher Menu
 -- https://wezfurlong.org/wezterm/config/launch.html#the-launcher-menu
 -- local launch_menu = {}
 -- if wezterm.target_triple == 'x86_64-pc-windows-msvc' then
-  -- table.insert(launch_menu, {
-    -- label = 'PowerShell',
-    -- args = { 'powershell.exe', '-NoLogo' },
-  -- })
+-- table.insert(launch_menu, {
+-- label = 'PowerShell',
+-- args = { 'powershell.exe', '-NoLogo' },
+-- })
 
-  -- Find installed visual studio version(s) and add their compilation
-  -- environment command prompts to the menu
-  -- for _, vsvers in
-    -- ipairs(
-      -- wezterm.glob('Microsoft Visual Studio/20*', 'C:/Program Files (x86)')
-    -- )
-  -- do
-    -- local year = vsvers:gsub('Microsoft Visual Studio/', '')
-    -- table.insert(launch_menu, {
-      -- label = 'x64 Native Tools VS ' .. year,
-      -- args = {
-        -- 'cmd.exe',
-        -- '/k',
-        -- 'C:/Program Files (x86)/'
-          -- .. vsvers
-          -- .. '/BuildTools/VC/Auxiliary/Build/vcvars64.bat',
-      -- },
-    -- })
-  -- end
+-- Find installed visual studio version(s) and add their compilation
+-- environment command prompts to the menu
+-- for _, vsvers in
+-- ipairs(
+-- wezterm.glob('Microsoft Visual Studio/20*', 'C:/Program Files (x86)')
+-- )
+-- do
+-- local year = vsvers:gsub('Microsoft Visual Studio/', '')
+-- table.insert(launch_menu, {
+-- label = 'x64 Native Tools VS ' .. year,
+-- args = {
+-- 'cmd.exe',
+-- '/k',
+-- 'C:/Program Files (x86)/'
+-- .. vsvers
+-- .. '/BuildTools/VC/Auxiliary/Build/vcvars64.bat',
+-- },
+-- })
+-- end
 -- end
 -- config.launch_menu = launch_menu
 
